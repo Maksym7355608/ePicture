@@ -1,10 +1,8 @@
 ﻿using ePicture.DAL.EF;
 using ePicture.DAL.Entities;
 using ePicture.DAL.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace ePicture.DAL.Repositories
 {
@@ -22,6 +20,11 @@ namespace ePicture.DAL.Repositories
             return context.Users.FirstOrDefault(user => user.Email.Equals(username) && user.Password.Equals(password));
         }
 
+        public async Task<User> LogInAsync(string username, string password)
+        {
+            return await Task.Run(() => LogIn(username, password));
+        }
+
         public bool SignUp(User user)
         {
             if(user == null)
@@ -29,6 +32,11 @@ namespace ePicture.DAL.Repositories
 
             context.Users.Add(user);
             return true;
+        }
+
+        public async Task<bool> SignUpAsync(User user)
+        {
+            return await Task.Run(() => SignUp(user));
         }
 
         public bool UpdatePassword(int id, string password)
@@ -40,6 +48,11 @@ namespace ePicture.DAL.Repositories
             user.Password = password;
             context.Users.Update(user);
             return true;
+        }
+
+        public async Task<bool> UpdatePasswordAsync(int id, string password)
+        {
+            return await Task.Run(() => UpdatePassword(id, password));
         }
     }
 }

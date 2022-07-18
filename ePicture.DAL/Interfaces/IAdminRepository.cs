@@ -1,7 +1,6 @@
 ﻿using ePicture.DAL.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace ePicture.DAL.Interfaces
 {
@@ -12,5 +11,9 @@ namespace ePicture.DAL.Interfaces
         IEnumerable<User> GetAllUsers();
         User GetUserById(int id);
 
+        Task DeleteUserAsync(int userId);
+        Task DeletePictureAsync(int pictureId);
+        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<User> GetUserByIdAsync(int id);
     }
 }

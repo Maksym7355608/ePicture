@@ -5,8 +5,12 @@ using System.Text;
 
 namespace ePicture.DAL.Interfaces
 {
-    internal interface IAdminRepository : IRepository<Admin>
+    public interface IAdminRepository
     {
+        void DeleteUser(int userId);
+        void DeletePicture(int pictureId);
+        IEnumerable<User> GetAllUsers();
+        User GetUserById(int id);
 
     }
 }

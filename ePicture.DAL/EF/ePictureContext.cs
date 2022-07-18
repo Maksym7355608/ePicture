@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ePicture.DAL.EF
 {
-    internal class ePictureContext : DbContext
+    public class ePictureContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Picture> Pictures { get; set; }

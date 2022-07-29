@@ -10,7 +10,7 @@ namespace ePicture.DAL.Entities
         public string Path { get; set; }
         public Category Category { get; set; }
         public string Description { get; set; }
-        public IEnumerable<string> Tags { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
     }
 
     public enum Category

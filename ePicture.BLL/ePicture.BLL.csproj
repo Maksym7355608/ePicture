@@ -12,4 +12,8 @@
     <Folder Include="BusinessModels\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ePicture.DAL\ePicture.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

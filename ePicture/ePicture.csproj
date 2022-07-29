@@ -10,4 +10,23 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.27">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.27" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ePicture.BLL\ePicture.BLL.csproj" />
+    <ProjectReference Include="..\ePicture.DAL\ePicture.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

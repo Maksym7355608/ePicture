@@ -15,14 +15,34 @@ namespace ePicture.DAL.Repositories
             this.context = context;
         }
 
-        public User LogIn(string username, string password)
+        public void DeleteAccount(int id)
         {
-            return context.Users.FirstOrDefault(user => user.Email.Equals(username) && user.Password.Equals(password));
+            context.Users.Remove(GetUserById(id));
         }
 
-        public async Task<User> LogInAsync(string username, string password)
+        public async Task DeleteAccountAsync(int id)
         {
-            return await Task.Run(() => LogIn(username, password));
+            context.Users.Remove(await GetUserByIdAsync(id));
+        }
+
+        public User GetUserById(int id)
+        {
+            return context.Users.Find(id);
+        }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            return await context.Users.FindAsync(id);
+        }
+
+        public User LogIn(string email)
+        {
+            return context.Users.FirstOrDefault(user => user.Email.Equals(email));
+        }
+
+        public async Task<User> LogInAsync(string email)
+        {
+            return await Task.Run(() => LogIn(email));
         }
 
         public bool SignUp(User user)
@@ -39,20 +59,20 @@ namespace ePicture.DAL.Repositories
             return await Task.Run(() => SignUp(user));
         }
 
-        public bool UpdatePassword(int id, string password)
+        public void UpdatePassword(int id, string password)
         {
-            var user = context.Users.Find(id);
-
-            if(user == null) return false;
+            var user = GetUserById(id);
 
             user.Password = password;
             context.Users.Update(user);
-            return true;
         }
 
-        public async Task<bool> UpdatePasswordAsync(int id, string password)
+        public async Task UpdatePasswordAsync(int id, string password)
         {
-            return await Task.Run(() => UpdatePassword(id, password));
+            var user = await GetUserByIdAsync(id);
+
+            user.Password = password;
+            context.Users.Update(user);
         }
     }
 }

@@ -9,7 +9,6 @@ namespace ePicture.DAL.Entities
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Role { get => "User"; }
-        public IEnumerable<Picture> Pictures { get; set; }
+        public string Role { get; set; }
     }
 }

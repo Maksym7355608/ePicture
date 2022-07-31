@@ -5,17 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-    <Folder Include="BusinessModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ePicture.DAL\ePicture.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BusinessProcess\" />
   </ItemGroup>
 
 </Project>
